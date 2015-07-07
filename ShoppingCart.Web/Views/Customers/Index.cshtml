@@ -4,6 +4,7 @@
 }
 
 <h2>Customer List</h2>
+<div>@Html.ActionLink("Create New","Create")</div>
 <h3>Traditional</h3>
 <a href="@Url.Action("Index", new { Page = ViewBag.CurrentPage, type = "First" })">First</a> &nbsp;
 <a href="@Url.Action("Index", new { Page = ViewBag.CurrentPage, type = "Next" })">Next</a> &nbsp;

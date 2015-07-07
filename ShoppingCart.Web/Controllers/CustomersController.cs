@@ -99,5 +99,26 @@ namespace ShoppingCart.Web.Controllers
 
             return Json(new {data = collection});
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        public ActionResult Create(FormCollection fc)
+        {
+            if (Convert.ToString(fc["CustomerName"]) == "") 
+            {
+                ModelState.AddModelError("CustomerName", "Enter customer name."); 
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }

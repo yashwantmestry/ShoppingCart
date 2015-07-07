@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create","Customers", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+   
+    <div>
+        @Html.TextBox("CustomerName", "", new { placeholder = "Enter customer name"}) 
+        @Html.ValidationMessage("CustomerName","*")
+    </div>
+    <div>
+        <input type="submit"   value="Submit" />
+    </div>
+}
