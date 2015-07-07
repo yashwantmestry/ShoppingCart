@@ -1,0 +1,34 @@
+﻿@model List<ShoppingCart.BusinessObjects.CustomersModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Customer List</h2>
+<h3>Traditional</h3>
+<a href="@Url.Action("Index", new { Page = ViewBag.CurrentPage, type = "First" })">First</a> &nbsp;
+<a href="@Url.Action("Index", new { Page = ViewBag.CurrentPage, type = "Next" })">Next</a> &nbsp;
+<a href="@Url.Action("Index", new { Page = ViewBag.CurrentPage, type = "Previous" })">Previous</a>
+<a href="@Url.Action("Index", new { Page = ViewBag.PageCount, type = "Last" })">Last</a> &nbsp;
+<br/>
+<h3>Ajax</h3>
+<a href="@Url.Action("Index", new { Page = ViewBag.CurrentPage, type = "First" })">First</a> &nbsp;
+<a href="@Url.Action("Index", new { Page = ViewBag.CurrentPage, type = "Next" })">Next</a> &nbsp;
+<a href="@Url.Action("Index", new { Page = ViewBag.CurrentPage, type = "Previous" })">Previous</a>
+<a href="@Url.Action("Index", new { Page = ViewBag.PageCount, type = "Last" })">Last</a> &nbsp;
+<br />
+@Html.Raw(ViewBag.CurrentPage)
+
+<table>
+    <tr>
+        <td>Customer Id</td>
+        <td>Customer Name</td> 
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CustomerId</td>
+            <td>@item.CompanyName</td> 
+        </tr>
+    }
+</table>

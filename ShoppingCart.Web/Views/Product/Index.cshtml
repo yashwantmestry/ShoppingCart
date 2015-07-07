@@ -1,0 +1,27 @@
+﻿@model List<ShoppingCart.BusinessObjects.ProductModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Product List</h2>
+
+<table>
+    <tr>
+        <td>Product Id</td>
+        <td>Product Name</td>
+        <td></td> 
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductId</td>
+            <td>@item.ProductName</td>
+            <td>
+            @Html.ActionLink("Select", "Select", new { id = item.ProductId}) |
+            @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ProductId }) 
+            </td> 
+        </tr>
+    }
+</table>
